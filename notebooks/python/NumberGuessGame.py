@@ -28,7 +28,7 @@ def zahlen_ratespiel():
         else:
             print("The hidden number is lower")
         
-        # Add Guess to TryCount
+        # Add Guess to  TryCount
         versucheSpieler += 1
     
     if versucheSpieler == versucheMax:
