@@ -1,41 +1,45 @@
 import random
 
 def zahlen_ratespiel():
-    # Zufallszahl zwischen 1 und 100 wählen
+    # Random Number between 1 and 100
     zielzahl = random.randint(1, 100)
     
-    # Spieler hat maximal 10 Versuche
-    versuche = 0
-    
-    while versuche < 10:
+    # set trys to 0
+    versucheSpieler = 0
+
+    #max trys set to 5 in this case
+    versucheMax = 5
+
+    #checkFor if any trys left
+    while versucheSpieler < versucheMax:
         try:
-            # Spieler gibt einen Rateversuch ein
-            ratezahl = int(input("Rate eine Zahl zwischen 1 und 100: "))
+            # Player trys to guess the number
+            ratezahl = int(input("Guess a number between 1 and 100: "))
         except ValueError:
-            print("Bitte gib eine gültige Zahl ein.")
+            print("Put in a valid number, please")
             continue
         
-        # Überprüfen, ob die geratene Zahl korrekt ist
+        # Checkfor Number Player Guessed
         if ratezahl == zielzahl:
-            print("Herzlichen Glückwunsch! Du hast die Zahl richtig geraten.")
+            print("Congrats, you got the right Number")
             break
         elif ratezahl < zielzahl:
-            print("Die gesuchte Zahl ist höher.")
+            print("The hidden number is higher")
         else:
-            print("Die gesuchte Zahl ist niedriger.")
+            print("The hidden number is lower")
         
-        # Versuchszähler erhöhen
-        versuche += 1
+        # Add Guess to TryCount
+        versucheSpieler += 1
     
-    if versuche == 10:
-        print(f"Leider hast du die Zahl nicht in 10 Versuchen erraten. Die gesuchte Zahl war {zielzahl}.")
+    if versucheSpieler == versucheMax:
+        print(f"Sadly you didn't manage to guess the Number in {versucheMax} Trys. The Number was {zielzahl}.")
     
-    # Spiel neu starten
-    neu_starten = input("Möchtest du das Spiel neu starten? (Ja/Nein): ")
-    if neu_starten.lower() == 'ja':
+    # Restart Game if wanted
+    neu_starten = input("Do you want to play again? (Yes/No): ")
+    if neu_starten.lower() == 'yes':
         zahlen_ratespiel()
     else:
-        print("Vielen Dank fürs Spielen!")
+        print("Thanks for playing my little Game")
 
-# Spiel starten
+# Start Game
 zahlen_ratespiel()
