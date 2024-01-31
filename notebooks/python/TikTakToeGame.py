@@ -107,7 +107,7 @@ def play_tictactoe():
                 symbol = 'X'
             else:
                 print("Computer's turn:")
-                row, col = get_computer_move(board, difficulty)
+                row, col = get_computer_move(board, difficulty) # type: ignore
                 symbol = 'O'
 
             board[row][col] = symbol
